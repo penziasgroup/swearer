@@ -1,0 +1,850 @@
+/*
+ * @file
+ * global.styles
+ *
+ * Styles you add here will load for all device sizes, they are "global", as
+ * opposed to "responsive" styles, which only load for a given breakpoint (media
+ * query) that you set in theme settings. See the README for more details.
+ *
+ *
+ * How to use this file:
+ * --------------------
+ *
+ * There are many empty selectors and some basic styles to act as a guide.
+ * Nothing is set in stone and you can change anything - even delete all of it
+ * and start with your own clean slate.
+ *
+ * To FORCE PRINT all selectors you can search and replace a single { (opening
+ * curly brace) and insert an empty comment. This is very useful in conjuction
+ * with FireSass: https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
+ *
+ * See global.base also which includes normalize.css and some additional
+ * helper classes and base styles.
+ */
+/* =============================================================================
+ *   Base
+ * ========================================================================== */
+/*
+ * To preserve theme settings never apply font properties to the HTML element.
+ * This is critically important if you are using the Responsive JavaScript
+ * feature as this relies on being able to set a pseudo font family on the HTML
+ * element. If you need to set default font properties of any kind use the BODY
+ * element as these can be overridden using font theme settings.
+ */
+/* line 41, ../sass/global.styles.scss */
+html {
+
+}
+
+/* line 45, ../sass/global.styles.scss */
+body {
+
+}
+
+/* =============================================================================
+ *   HTML Elements
+ * ========================================================================== */
+/* line 135, ../sass/global.styles.scss */
+pre,
+code,
+tt,
+samp,
+kbd,
+var {
+
+}
+
+/* =============================================================================
+ *   Wrappers
+ * ========================================================================== */
+/*
+ * Outer wrappers:
+ * - #page-wrapper: body > #page-wrapper
+ * - #page: body > #page-wrapper > #page
+ * - .container: body > #page-wrapper > #page.container
+ *
+ * The .container class holds the page width value from theme settings. You can
+ * style the .container class but do not add width such as border, padding,
+ * margins etc.
+ */
+/*
+ * Wraps all header elements - branding and .region-header
+ */
+/*
+ * Wraps the sidebars the content column
+ */
+/*
+ * Main content column wrapper
+ */
+/*
+ * Wraps the main-content-header, the content region and feed-icons. Use this
+ * wrapper to style the entire main content column
+ */
+/*
+ * Wraps the content region, avoid applying styles to this wrapper, its used
+ * mainly for position and invisible gutters and can be problematic to style
+ */
+/*
+ * Footer wrapper
+ */
+/*
+ * Panels may need additional margin wrangling when in the $content region
+ */
+/*
+ * Full Width Wrappers
+ * These are used in the optional page--full-width-wrappers.tpl.php template.
+ * All have internal .container classes. In the full width wrapper template the
+ * .container classes set the width or max-width - you can style this but never
+ * add any width/margin/padding/borders etc to .container
+ */
+/*
+ * Wraps the leaderboard
+ */
+/*
+ * Wraps the header
+ */
+/* line 231, ../sass/global.styles.scss */
+#header-wrapper {
+  /* Debug styles, is this working */
+}
+
+/*
+ * Wraps the nav elements
+ */
+/*
+ * Wraps breadcrumb
+ */
+/*
+ * Wraps messages and help
+ */
+/*
+ * Wraps the secondary content/preface region
+ */
+/*
+ * Wraps the main content column
+ */
+/*
+ * Wraps the tertiary content/postfix region
+ */
+/*
+ * Footer wrapper
+ */
+/* line 289, ../sass/global.styles.scss */
+#footer-wrapper {
+  /* Debug styles, is this working? */
+
+}
+
+/* =============================================================================
+ *   Branding
+ * ========================================================================== */
+/*
+ * Wraps all the branding elements, logo, name and slogan
+ */
+/*
+ * Logo
+ */
+/* line 310, ../sass/global.styles.scss */
+#logo {
+
+}
+/* line 313, ../sass/global.styles.scss */
+#logo img {
+
+}
+
+/* =============================================================================
+ *   Page content header
+ * ========================================================================== */
+/*
+ * Main content header wraps the page title, tabs and actions links
+ */
+/*
+ * The main page title (h1)
+ */
+/* line 367, ../sass/global.styles.scss */
+#page-title {
+  margin: 0;
+}
+
+/*
+ * Generic styles for the more link
+ */
+/*
+ * Generic styles for links. See the ul.links declaration in node and comment stylesheets
+ */
+/* line 408, ../sass/global.styles.scss */
+ul.links {
+  margin: 0;
+  padding: 0;
+}
+/* line 412, ../sass/global.styles.scss */
+ul.links.inline {
+  display: block;
+}
+/* line 416, ../sass/global.styles.scss */
+ul.links li {
+  display: inline;
+  list-style: none;
+  padding: 0 10px 0 0;
+}
+
+/*
+ * Search results are an ordered list so reset the margin
+ */
+/* line 427, ../sass/global.styles.scss */
+.search-results {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Attribution message and link
+ */
+/* line 436, ../sass/global.styles.scss */
+.attribution {
+  display: block;
+  opacity: 0.65;
+  padding: 1em 0;
+  text-align: center;
+}
+/* line 442, ../sass/global.styles.scss */
+.attribution a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 446, ../sass/global.styles.scss */
+.attribution a:hover, .attribution a:focus {
+  text-decoration: underline;
+}
+
+/* =============================================================================
+ *   Regions
+ * ========================================================================== */
+
+/* =============================================================================
+ *   Links
+ * ========================================================================== */
+/* line 540, ../sass/global.styles.scss */
+a {
+  text-decoration: none;
+}
+/* line 549, ../sass/global.styles.scss */
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* =============================================================================
+ *   Primary, Secondary and Menu Bar region menus
+ * ========================================================================== */
+/* line 560, ../sass/global.styles.scss */
+.nav {
+  clear: both;
+  margin: 10px 0;
+}
+/* line 564, ../sass/global.styles.scss */
+.nav ul,
+.nav ul.menu {
+  margin: 0;
+  padding: 0;
+}
+/* line 570, ../sass/global.styles.scss */
+.nav li,
+.nav ul.menu li {
+  display: inline;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 579, ../sass/global.styles.scss */
+.nav li a,
+.nav ul.menu li a {
+  display: block;
+  white-space: nowrap;
+  padding: 0 10px;
+}
+/* line 591, ../sass/global.styles.scss */
+.nav .block {
+  margin-bottom: 0;
+}
+
+/* =============================================================================
+ *   Menu Toggles
+ * ========================================================================== */
+/* line 705, ../sass/global.styles.scss */
+.at-mt .at-menu-toggle,
+.at-mt .at-menu-toggle ul,
+.at-mt .at-menu-toggle ul.menu {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+/* line 713, ../sass/global.styles.scss */
+.at-mt .at-menu-toggle-button {
+  margin: 0;
+}
+/* line 717, ../sass/global.styles.scss */
+.at-mt .at-menu-toggle ul a {
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+/* =============================================================================
+ *   Menus, usually blocks
+ * ========================================================================== */
+/* line 728, ../sass/global.styles.scss */
+ul.menu {
+  padding-left: 15px;
+}
+/* line 731, ../sass/global.styles.scss */
+ul.menu ul {
+  padding-left: 15px;
+}
+/* line 739, ../sass/global.styles.scss */
+ul.menu li {
+  margin: 0;
+}
+
+/* If li.content exists it's a problem, so reset the padding */
+/* line 768, ../sass/global.styles.scss */
+.block .menu li.content {
+  padding: 0;
+}
+
+/* =============================================================================
+ *   Pagers
+ * ========================================================================== */
+/* line 851, ../sass/global.styles.scss */
+ul.pager {
+  clear: both;
+  margin: 0;
+  text-align: center;
+}
+
+/* line 858, ../sass/global.styles.scss */
+.item-list ul.pager li {
+  margin: 0;
+}
+
+/* line 863, ../sass/global.styles.scss */
+ul.pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: .5em;
+}
+/* line 869, ../sass/global.styles.scss */
+ul.pager li.pager-current {
+  font-weight: 700;
+}
+
+/* line 875, ../sass/global.styles.scss */
+.block ul.pager li {
+  margin: 0;
+}
+
+/*
+ * Theme the various states of pager links
+ */
+/* =============================================================================
+ *   Skip Navigation
+ * ========================================================================== */
+/* line 912, ../sass/global.styles.scss */
+#skip-link {
+  left: 50%;
+  margin-left: -6.5em;
+  margin-top: 0;
+  padding: 0 0.5em;
+  position: absolute;
+  width: 12em;
+  z-index: 50;
+}
+/* line 921, ../sass/global.styles.scss */
+#skip-link a {
+  background: #444;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: block;
+  line-height: 2;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+}
+/* line 931, ../sass/global.styles.scss */
+#skip-link a:link, #skip-link a:visited {
+  background: #444;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: block;
+  line-height: 2;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+}
+/* line 942, ../sass/global.styles.scss */
+#skip-link a:hover, #skip-link a:focus, #skip-link a:active {
+  outline: 0;
+}
+
+/* =============================================================================
+ *   Tabs (local tasks)
+ * ========================================================================== */
+/* line 955, ../sass/global.styles.scss */
+#tasks {
+  margin-bottom: 15px;
+}
+
+/* line 960, ../sass/global.styles.scss */
+ul.primary {
+  border-bottom-color: #ccc;
+  margin: 20px 0;
+  padding: 0 0 0 5px;
+}
+/* line 965, ../sass/global.styles.scss */
+ul.primary li {
+  display: block;
+  float: left;
+  margin: 0 1px -1px;
+}
+/* line 970, ../sass/global.styles.scss */
+ul.primary li a {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+  margin-right: 1px;
+  padding: 0 10px;
+  display: block;
+  float: left;
+  height: 1.5em;
+  line-height: 1.5em;
+}
+/* line 980, ../sass/global.styles.scss */
+ul.primary li a:hover, ul.primary li a:focus {
+  background-color: #eee;
+  border-color: #ccc;
+}
+/* line 989, ../sass/global.styles.scss */
+ul.primary li.active a,
+ul.primary li.active a:hover,
+ul.primary li.active a:focus {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* line 999, ../sass/global.styles.scss */
+ul.secondary {
+  border-bottom: 1px solid #ccc;
+  margin: 1em 0 0;
+  padding: 0 .3em 1em;
+}
+/* line 1004, ../sass/global.styles.scss */
+ul.secondary li {
+  border-right: 0;
+  list-style: none;
+  padding: 0 10px 0 0;
+}
+/* line 1010, ../sass/global.styles.scss */
+ul.secondary li a:hover, ul.secondary li a.active {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+/* =============================================================================
+ *   Action links
+ * ========================================================================== */
+/* line 1024, ../sass/global.styles.scss */
+ul.action-links {
+  margin: 20px 0 0;
+  list-style: none;
+}
+
+/* =============================================================================
+ *  Field Styling
+ * ========================================================================== */
+/*
+ * Wrapper for any field
+ */
+/*
+ * Above and inline classes are on the field wrapper
+ */
+/*
+ * When labels are set to inline in field display settings the clearfix class is automatically added
+ */
+/* line 1051, ../sass/global.styles.scss */
+.field-label-inline {
+  /* Remove the margin on inline field lables to preserve vertical formatting */
+}
+/* line 1054, ../sass/global.styles.scss */
+.field-label-inline .field-label {
+  margin: 0;
+}
+
+/*
+ * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
+ */
+/* line 1062, ../sass/global.styles.scss */
+.field-label {
+  font-size: 1em;
+  font-weight: 700;
+  font-family: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+}
+
+/*
+ * Field types (Core)
+ */
+/*
+ * Image fields use the <figure> and <figcaption> elements from HTML5
+ */
+/*
+ * Taxonomy
+ */
+/* line 1091, ../sass/global.styles.scss */
+.field-type-taxonomy-term-reference {
+  /* The same bottom margin as p, blockquote, ul, ol and dl */
+  margin-bottom: 1.5em;
+}
+/* line 1096, ../sass/global.styles.scss */
+.field-type-taxonomy-term-reference.field-label-inline .field-items {
+  margin: 0;
+  padding: 0;
+}
+/* line 1101, ../sass/global.styles.scss */
+.field-type-taxonomy-term-reference.field-label-inline .field-item {
+  display: inline;
+  list-style: none;
+  padding: 0 10px 0 0;
+}
+
+/* line 1215, ../sass/global.styles.scss */
+.ia-l .field-type-image figure,
+.iat-l .field-type-image figure {
+  margin: 5px 20px 15px 0;
+}
+
+/*
+ * Centered setting
+ */
+/* line 1224, ../sass/global.styles.scss */
+.ia-c .field-type-image figure,
+.iat-c .field-type-image figure {
+  margin: 5px auto 15px;
+}
+
+/*
+ * Float right setting
+ */
+/* line 1233, ../sass/global.styles.scss */
+.ia-r .field-type-image figure,
+.iat-r .field-type-image figure {
+  margin: 5px 0 15px 20px;
+}
+
+/* =============================================================================
+ *   Block Styling
+ * ========================================================================== */
+/*
+ * Main wrapper for most blocks, block_system_main does not have it
+ */
+/* line 1247, ../sass/global.styles.scss */
+.block {
+  margin-bottom: 20px;
+}
+
+/* line 1285, ../sass/global.styles.scss */
+.block-title {
+  margin: 0;
+}
+
+/*
+ * Block content wrapper
+ */
+/*
+ * Match item list and block menu margin and padding
+ */
+/* line 1301, ../sass/global.styles.scss */
+.block-content ul,
+.block-content ol {
+  padding: 0 0 0 15px;
+}
+/* line 1306, ../sass/global.styles.scss */
+.block-content li {
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================================================
+ *   Node Styling
+ * ========================================================================== */
+/* line 1479, ../sass/global.styles.scss */
+.node {
+  margin-bottom: 20px;
+}
+/* line 1496, ../sass/global.styles.scss */
+.node .node-title {
+  margin: 0;
+}
+
+/* =============================================================================
+ *   Forms
+ * ========================================================================== */
+/*
+ * Wrapper for a form element (or group of form elements) and its label
+ */
+/* line 1657, ../sass/global.styles.scss */
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #c00;
+}
+/* line 1663, ../sass/global.styles.scss */
+.form-item label {
+  font-weight: 700;
+}
+/* line 1670, ../sass/global.styles.scss */
+.form-item .description {
+  font-size: 0.85em;
+}
+
+/*
+ * Highlight marks and form required mark
+ */
+/* line 1683, ../sass/global.styles.scss */
+.marker,
+.form-required {
+  color: #c00;
+}
+
+/*
+ * The submit button
+ */
+/* line 1697, ../sass/global.styles.scss */
+.container-inline div,
+.container-inline label {
+  display: inline;
+}
+
+/*
+ * Define consistent borders
+ */
+/* line 1706, ../sass/global.styles.scss */
+fieldset {
+  border: 1px solid #ccc;
+}
+
+/*
+ * Tips for Drupal's input formats
+ */
+/*
+ * Buttons used by contrib modules like Media
+ */
+/* line 1720, ../sass/global.styles.scss */
+a.button {
+  -moz-appearance: button;
+  -webkit-appearance: button;
+}
+
+/*
+ * Password confirmation
+ */
+/* line 1728, ../sass/global.styles.scss */
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/* =============================================================================
+ *   Tables
+ * ========================================================================== */
+/* line 1738, ../sass/global.styles.scss */
+table {
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+}
+/* line 1743, ../sass/global.styles.scss */
+table.sticky-header {
+  z-index: 10;
+}
+
+/* line 1749, ../sass/global.styles.scss */
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  border-color: #ccc;
+}
+
+/* line 1759, ../sass/global.styles.scss */
+table,
+td,
+th {
+  vertical-align: middle;
+}
+
+/* line 1766, ../sass/global.styles.scss */
+caption,
+th,
+td {
+  text-align: left;
+}
+
+/* line 1773, ../sass/global.styles.scss */
+thead tr {
+  font-weight: 700;
+  background-color: #e5e5e5;
+}
+
+/* line 1779, ../sass/global.styles.scss */
+td,
+th {
+  border-bottom: 0;
+  margin: 0;
+  padding: 5px 7px;
+}
+
+/* line 1790, ../sass/global.styles.scss */
+tbody tr {
+  border-top: 1px solid #ccc;
+}
+
+/* line 1795, ../sass/global.styles.scss */
+tr {
+  /* Table row striping */
+}
+/* line 1797, ../sass/global.styles.scss */
+tr.odd {
+  background: #fff;
+}
+/* line 1802, ../sass/global.styles.scss */
+tr.info, tr.even, tr:nth-child(2n+2) {
+  border-bottom: 0;
+  background-color: #f5f5f5;
+}
+/* line 1813, ../sass/global.styles.scss */
+tr.odd td.active {
+  background-color: #eee;
+}
+/* line 1817, ../sass/global.styles.scss */
+tr.even td.active {
+  background-color: #ebebeb;
+}
+
+/*
+ * Forum tables
+ * Core sets white-space to nowrap, which makes no sense
+ */
+/* line 1840, ../sass/global.styles.scss */
+#forum td.created, #forum td.posts, #forum td.topics, #forum td.last-reply, #forum td.replies, #forum td.pager {
+  white-space: normal;
+}
+
+/* =============================================================================
+ *   Messages
+ * ========================================================================== */
+/* line 1856, ../sass/global.styles.scss */
+div.messages {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* line 1861, ../sass/global.styles.scss */
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*
+ * Unpublished nodes
+ */
+/* line 1902, ../sass/global.styles.scss */
+.node-unpublished p.unpublished,
+.comment-unpublished p.unpublished {
+  color: pink;
+  color: rgba(239, 170, 170, 0.4);
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  text-align: center;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+/* line 186, ../sass/_custom.scss */
+.ie6-7 .node-unpublished p.unpublished > *, .ie6-7
+.comment-unpublished p.unpublished > * {
+  position: relative;
+}
+
+/* =============================================================================
+ *    Maintenance pages
+ * ========================================================================== */
+/* line 1913, ../sass/global.styles.scss */
+.maintenance-page .container {
+  padding: 40px 0;
+}
+/* line 1917, ../sass/global.styles.scss */
+.maintenance-page #site-name,
+.maintenance-page #page-title {
+  margin: 0;
+}
+
+/* line 1925, ../sass/global.styles.scss */
+.db-offline .container {
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+  max-width: 960px;
+}
+/* line 1932, ../sass/global.styles.scss */
+.db-offline div.messages {
+  margin: 20px 0 0;
+}
+/* line 1936, ../sass/global.styles.scss */
+.db-offline #content {
+  padding: 20px 0;
+}
+
+/* =============================================================================
+ *   Misc overrides for contrib modules
+ * ========================================================================== */
+/*
+ * Admin menu overrides
+ */
+/* line 1949, ../sass/global.styles.scss */
+#admin-menu {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Devel Module
+ */
+/* line 1958, ../sass/global.styles.scss */
+.dev-query {
+  background: #eee;
+  padding: 30px;
+}
+
+/*
+ * Styleguide module tweaks
+ */
+/* line 1967, ../sass/global.styles.scss */
+#styleguide-header {
+  padding: 0 10px;
+}
+/* line 1970, ../sass/global.styles.scss */
+#styleguide-header .item-list {
+  font-family: inherit;
+  margin: 0 20px 20px 0;
+  min-height: 260px;
+  width: auto;
+}
+
+/*# sourceMappingURL=global.styles.css.map */

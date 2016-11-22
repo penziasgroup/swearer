@@ -1,0 +1,12 @@
+<?php
+
+function extra_modes_entity_info_alter(&$entity_info){
+    $entity_info['node']['view modes']['mini_teaser'] = array(
+        'label' => t('Mini Teaser'),
+        'custom settings' => TRUE,
+    );
+    $entity_info['taxonomy_term']['view modes']['taxonomy_card'] = array(
+        'label' => t('Taxonomy Card'),
+        'custom settings' => TRUE,
+    );
+}
