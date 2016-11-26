@@ -1,0 +1,5 @@
+name = Swearer Helper
+description = Enables misc hook functions
+core = 7.x
+
+

@@ -14,6 +14,23 @@ function extra_fields_field_extra_fields() {
         'type' => 'hidden',
       );
     }
+    if($type->type == 'event'){
+      $extra['node'][$type->type]['display']['add_this'] = array(
+        'label' => t('Extra field: Add to Calendar'),
+        'weight' => 4,
+        'type' => 'hidden',
+      ); 
+      $extra['node'][$type->type]['display']['event_detail'] = array(
+        'label' => t('Extra field: Link to detail'),
+        'weight' => -4,
+        'type' => 'hidden',
+      ); 
+      $extra['node'][$type->type]['display']['time_only'] = array(
+        'label' => t('Extra field: Time Only'),
+        'weight' => -4,
+        'type' => 'hidden',
+      );
+    }
   }
  
   //Taxonomy
@@ -64,6 +81,25 @@ function extra_fields_node_view($node, $view_mode, $langcode) {
       '#view_mode' => $view_mode,
     );  
   }
+  if ($node->type == 'event'){
+      $node->content['time_only'] = array(
+        '#theme' => 'extra_fields_time_only',
+        '#node' => $node,
+        '#view_mode' => $view_mode,
+    ); 
+    $node->content['event_detail'] = array(
+        '#theme' => 'extra_fields_event_detail',
+        '#node' => $node,
+        '#view_mode' => $view_mode,
+    );
+  }
+  if ($node->type == 'event' && in_array($view_mode, array('default', 'full'))) {
+      $node->content['add_this'] = array(
+      '#theme' => 'extra_fields_add_this',
+      '#node' => $node,
+      '#view_mode' => $view_mode,
+    ); 
+  }
 }
 
 function extra_fields_taxonomy_term_view($term, $view_mode, $langcode) {
@@ -108,6 +144,15 @@ function extra_fields_theme($existing, $type, $theme, $path) {
     'extra_fields_term_activities_link' => array(
       'variables' => array('term' => NULL, 'view_mode' => NULL),
     ),
+    'extra_fields_add_this' => array(
+      'variables' => array('node' => NULL, 'view_mode' => NULL),
+    ),   
+    'extra_fields_time_only' => array(
+      'variables' => array('node' => NULL, 'view_mode' => NULL),
+    ),      
+    'extra_fields_event_detail' => array(
+      'variables' => array('node' => NULL, 'view_mode' => NULL),
+    ), 
   );
 }
 
@@ -131,12 +176,19 @@ function theme_extra_fields_term_faq_link($variables){
     }
     return $output;
 }
-// @todo add logic to detect if view is not empty before displaying link.
+
 function theme_extra_fields_term_activities_link($variables){
     $term = $variables['term'];
     $name = $term->name;
+    $tid = $term->tid;
     $current_path = drupal_get_path_alias();
-    $output = l('Initiative Activities', '/' . $current_path . '/activities');
+    $output = '';
+    //Check view results to see if loaded initiative has any activities
+    $view = views_get_view_result('programs', 'page','NULL', $tid);
+    $result = count($view);
+    if ($result) {
+        $output = l('Initiative Activities', '/' . $current_path . '/activities');
+    }
     return $output;
 }
 
@@ -163,6 +215,58 @@ function theme_extra_fields_title_nolink($variables) {
   $output = '<h2 class="node-title">';
   $output .= $link_title;
   $output .= '</h2>';
+  return $output;
+}
+
+function theme_extra_fields_add_this($variables) {
+  $node = $variables['node'];
+  $eventTimeRaw = strtotime($node->field_event_date[LANGUAGE_NONE][0]['value']);
+  $startDate = format_date($eventTimeRaw, $type = 'custom', $format='m/d/Y H:i');
+  
+  
+  $output = '<div title="" class="addeventatc" id="addeventatc1" aria-controls="addeventatc1-drop" aria-expanded="false" tabindex="0" style="visibility: visible;"> add to calendar';
+  $output .= '<span class="timezone atc_node">America/New_York</span>';
+  $output .= '<span class="title atc_node">' . $node->title . '</span>';
+  $output .= '<span class="start atc_node">' . $startDate . '</span>';
+  if(!empty($node->body)){
+    $teaser = $node->body[LANGUAGE_NONE][0]['safe_value'];
+    $output .= '<span class="description atc_node">' . $teaser. '</span>';
+  }
+  if(!empty($node->field_event_location)){
+    $location = $node->field_event_location[LANGUAGE_NONE][0]['title'];
+    $output .= '<span class="location atc_node">' . $location . '</span>';
+  }
+  $output .= '<span class="date_format atc_node">MM/DD/YYYY</span>';
+  $output .= '</div>';
+  return $output;
+}
+
+function theme_extra_fields_time_only($variables) {
+  $node = $variables['node'];
+  if(!empty($node->field_event_date)){
+      $date1 = strtotime($node->field_event_date[LANGUAGE_NONE][0]['value']);
+      $date2 = strtotime($node->field_event_date[LANGUAGE_NONE][0]['value2']);
+      $time_only1 = format_date($date1, 'time_only');
+      $time_only2 = format_date($date2, 'time_only');
+      if(($date1 == $date2) && ($time_only1 == '12:00AM')){
+          $output = '<div class="time-only">All Day</div>';
+      }else if(($date1 == $date2) && ($time_only1 == $time_only2)){
+          $output = '<div class="time-only">' . $time_only1 . '</div>';
+      }
+      else{
+        $output = '<div class="time-only">' . $time_only1 . ' to ' . $time_only2 . '</div>';
+      }
+      return $output;
+  }
+}
+
+function theme_extra_fields_event_detail($variables) {
+  $node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+  $entity_uri = entity_uri('node', $node);
+  $link = l('more>', $entity_uri['path']);
+  
+  $output = '<div class="link-to-event">' . $link . '</div>';
   return $output;
 }
 
