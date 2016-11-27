@@ -45,14 +45,23 @@ function extra_fields_field_extra_fields() {
         ),
       ),
     );
-    if($bundle == 'initiatives'){
+    if(($bundle == 'initiatives') || ($bundle == 'programs')){
       $extra['taxonomy_term'][$bundle]['display']['faq_link'] = array(
             'label' => t('Extra Field: FAQ Link'),
             'weight' => 0,
             'type' => 'hidden',
-      );  
+      ); 
+    }
+    if($bundle == 'initiatives'){
       $extra['taxonomy_term'][$bundle]['display']['activities_link'] = array(
             'label' => t('Extra Field: Activities Link'),
+            'weight' => 0,
+            'type' => 'hidden',
+      );  
+    }
+    if($bundle == 'programs'){
+      $extra['taxonomy_term'][$bundle]['display']['fellows_link'] = array(
+            'label' => t('Extra Field: Fellows Link'),
             'weight' => 0,
             'type' => 'hidden',
       );  
@@ -103,14 +112,23 @@ function extra_fields_node_view($node, $view_mode, $langcode) {
 }
 
 function extra_fields_taxonomy_term_view($term, $view_mode, $langcode) {
-    if($term->vocabulary_machine_name == 'initiatives' && in_array($view_mode, array('full'))){
+    if(($term->vocabulary_machine_name == 'initiatives' || $term->vocabulary_machine_name == 'programs' )&& in_array($view_mode, array('full'))){
         $term->content['faq_link'] = array(
             '#theme' => 'extra_fields_term_faq_link',
             '#term' => $term,
             '#view_mode' => $view_mode,
         );
+    }
+    if($term->vocabulary_machine_name == 'initiatives' && in_array($view_mode, array('full'))){
         $term->content['activities_link'] = array(
             '#theme' => 'extra_fields_term_activities_link',
+            '#term' => $term,
+            '#view_mode' => $view_mode,
+        );
+    }
+    if($term->vocabulary_machine_name == 'programs' && in_array($view_mode, array('full'))){
+        $term->content['fellows_link'] = array(
+            '#theme' => 'extra_fields_term_fellows_link',
             '#term' => $term,
             '#view_mode' => $view_mode,
         );
@@ -144,6 +162,9 @@ function extra_fields_theme($existing, $type, $theme, $path) {
     'extra_fields_term_activities_link' => array(
       'variables' => array('term' => NULL, 'view_mode' => NULL),
     ),
+    'extra_fields_term_fellows_link' => array(
+      'variables' => array('term' => NULL, 'view_mode' => NULL),
+    ),
     'extra_fields_add_this' => array(
       'variables' => array('node' => NULL, 'view_mode' => NULL),
     ),   
@@ -158,10 +179,15 @@ function extra_fields_theme($existing, $type, $theme, $path) {
 
 function theme_extra_fields_term_title($variables){
     $term = $variables['term'];
+    $vocabulary = $term->vocabulary_machine_name;
     $name = $term->name;
     $entity_uri = entity_uri('taxonomy_term', $term);
     $output = '<h2 class="taxonomy-title">';
-    $output .= l($name, $entity_uri['path']);
+    if($vocabulary == 'research'){
+        $output .= t($name);
+    }else{
+        $output .= l($name, $entity_uri['path']);
+    }
     $output .= '</h2>';
     return $output;
 }
@@ -188,6 +214,20 @@ function theme_extra_fields_term_activities_link($variables){
     $result = count($view);
     if ($result) {
         $output = l('Initiative Activities', '/' . $current_path . '/activities');
+    }
+    return $output;
+}
+function theme_extra_fields_term_fellows_link($variables){
+    $term = $variables['term'];
+    $name = $term->name;
+    $tid = $term->tid;
+    $current_path = drupal_get_path_alias();
+    $output = '';
+    //Check view results to see if loaded initiative has any activities
+    $view = views_get_view_result('program_fellows', 'page','NULL', $tid);
+    $result = count($view);
+    if ($result) {
+        $output = l('Fellows', '/' . $current_path . '/fellows');
     }
     return $output;
 }

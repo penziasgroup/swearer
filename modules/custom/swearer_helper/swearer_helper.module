@@ -1,7 +1,11 @@
 <?php
 
 function swearer_helper_views_pre_view($view, &$display_id, &$args) {
-  if (($view->name == 'programs' && $display_id == 'page' ) || ($view->name == 'faq_taxonomy_' && $display_id == 'page_1')) {
+  if (($view->name == 'programs' && $display_id == 'page' ) 
+        || ($view->name == 'faq_taxonomy_' && $display_id == 'page_1')
+        || ($view->name == 'program_fellows' && $display_id == 'page')
+        || ($view->name == 'faq_taxonomy_' && $display_id == 'page_2')
+  ) {
     $tid = $args[1];
     $term = taxonomy_term_load($tid);
     $title = $term->name;
