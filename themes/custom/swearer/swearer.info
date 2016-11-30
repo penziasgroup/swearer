@@ -13,9 +13,12 @@
 ;----------// Stylesheets
 
   ; See each stylesheet for extensive documentation and help.
+
+  stylesheets[screen][] = css/brown-header-footer.css
   stylesheets[screen][] = css/global.base.css
   stylesheets[screen][] = css/ckeditor.styles.css
   stylesheets[screen][] = css/global.styles.css
+  stylesheets[screen][] = css/side-menu.css
 
   ; Print - uncomment to load basic print styles.
   ; stylesheets[print][] = css/print.css
@@ -72,22 +75,20 @@
   ; following as a guide:
 
   ; ie_scripts[lte IE 8][] = scripts/my-script.js
-  
+  scripts[] = scripts/side_menu.js
+  scripts[] = scripts/brown-header-footer.js 
   scripts[] = scripts/ate.min.js  
 
 ;----------// Regions
 
-  regions[sidebar_first]     = Sidebar first
-  regions[sidebar_second]    = Sidebar second
   regions[content]           = Main Content
   regions[highlighted]       = Highlighted
-  regions[content_aside]     = Aside
   regions[secondary_content] = Secondary
   regions[tertiary_content]  = Tertiary
   regions[footer]            = Footer
-  regions[leaderboard]       = Leaderboard
+  regions[leaderboard]       = Search
+  regions[side_menu]         = Side Menu
   regions[header]            = Header
-  regions[menu_bar]          = Menu Bar
   regions[help]              = Help
   regions[page_top]          = Page top
   regions[page_bottom]       = Page bottom

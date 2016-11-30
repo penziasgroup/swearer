@@ -54,11 +54,13 @@ function swearer_process_html(&$vars) {
  * Override or insert variables for the page templates.
  */
 /* -- Delete this line if you want to use these functions
-function swearer_preprocess_page(&$vars) {
-}
 function swearer_process_page(&$vars) {
 }
-// */
+*/
+function swearer_preprocess_page(&$vars) {
+    drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . file_create_url(path_to_theme()) . '" });', 'inline'); 
+}
+
 
 
 /**
