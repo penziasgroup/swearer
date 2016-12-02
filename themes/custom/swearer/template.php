@@ -61,8 +61,6 @@ function swearer_preprocess_page(&$vars) {
     drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . file_create_url(path_to_theme()) . '" });', 'inline'); 
 }
 
-
-
 /**
  * Override or insert variables into the node templates.
  */
@@ -76,8 +74,16 @@ function swearer_preprocess_node(&$vars) {
     
     if($mode == 'teaser' || $mode == 'mini_teaser'){
         $vars['title'] = '';
-    }   
-    
+    }
+    if($mode == 'full' && $type == 'story'){
+        if(!empty($vars['content']['field_author'])){
+            $vars['content']['field_author'][0]['#markup'] = 'by ' . $vars['content']['field_author'][0]['#markup'];
+        }
+        if(!empty($vars['content']['field_youtube_url']) || !empty($vars['content']['field_photo_essay'])){
+            hide($vars['content']['field_featured_image']);
+            hide($vars['content']['field_featured_image_caption']);
+        }
+    }
 }
 
 /**

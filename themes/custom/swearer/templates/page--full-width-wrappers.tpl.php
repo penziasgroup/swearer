@@ -105,7 +105,7 @@
 <?php
 
 if(isset($section_title)){
-    $title = '<span class="section">' . $section_title . '</span> ' . '<span class="section-title">' . $title . '</span>';
+    $title = '<span class="section">' . $section_title . '</span> ';
 }elseif (!empty($title)){
     $title = '<span class="section">' . $title . '</span> ';
 }

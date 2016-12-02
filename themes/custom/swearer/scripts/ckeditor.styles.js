@@ -19,7 +19,8 @@ if(typeof(CKEDITOR) !== 'undefined') {
 
             { name : 'Paragraph'		, element : 'p' },
             { name : 'Heading 2'		, element : 'h2' },
-            { name : 'Heading 3'		, element : 'h3' }
+            { name : 'Heading 3'		, element : 'h3' },
+            { name : 'Intro Text'		, element : 'p', attributes : {'class':'intro'}  }
 
 
             /* Object Styles

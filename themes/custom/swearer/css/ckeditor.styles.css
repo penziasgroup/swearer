@@ -74,11 +74,11 @@ h1{
 h2{
     font-size: 48px;
     font-family: opensans;
-    text-transform: lowercase;
     color: #ed1c24;
     font-weight: normal;
     margin-top: 0;
     line-height: 1;
+    margin-bottom: 20px;
 }
 
 hr{
@@ -86,4 +86,8 @@ hr{
     border-top: 1px solid #ed1c24;
     margin-top: 60px;
     margin-bottom: 60px;
+}
+
+.intro{
+    font-size: 16px;
 }

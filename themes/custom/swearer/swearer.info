@@ -76,7 +76,9 @@
 
   ; ie_scripts[lte IE 8][] = scripts/my-script.js
   scripts[] = scripts/side_menu.js
-  scripts[] = scripts/brown-header-footer.js 
+  scripts[] = scripts/brown-header-footer.js
+  scripts[] = scripts/matchHeight.js 
+  scripts[] = scripts/scripts.js
   scripts[] = scripts/ate.min.js  
 
 ;----------// Regions
