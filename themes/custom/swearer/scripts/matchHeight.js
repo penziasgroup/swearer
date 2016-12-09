@@ -13,6 +13,9 @@
         $('.grid article').matchHeight({   
             byRow: false
         });
+        $('.grid .group-tax-card-content').matchHeight({
+            byRow: false
+        });
 
     } // end of attach function
   };

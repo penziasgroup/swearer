@@ -11,6 +11,6 @@ function swearer_helper_views_pre_view($view, &$display_id, &$args) {
     $title = $term->name;
     $path = drupal_get_path_alias('taxonomy/term/' . $tid);
     $footer = l('back to ' . $title, $path);
-    $view->add_item($view->current_display, 'footer', 'views', 'area', array('content' => $footer, 'format' => 'full_html'));
+    $view->add_item($view->current_display, 'footer', 'views', 'area', array('content' => '<div class="border-sep faq-back">' . $footer . '</div>', 'format' => 'full_html'));
   }
 }

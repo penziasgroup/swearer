@@ -1013,13 +1013,18 @@ h1#page-title{
 }
 
 /* Grid Displays */
-
+.grid:after{
+    content: '';
+    clear: both;
+    display: block;
+}
 .grid article{
     position: relative;
 }
 
 .grid article img{
     display: block;
+    width: 100%;
 }
 
 .grid article .node-title{
@@ -1031,12 +1036,17 @@ h1#page-title{
 .grid article .node-title a{
     color: #FFF;
     font-size: 24px;
+    line-height: 1.3;
     background-color: rgba(0,0,0,.5);
     padding: 18px 30px;
     display: block;
 }
 .grid article:hover{
     cursor: pointer;
+}
+.grid article.vocabulary-initiatives:hover,
+.grid article.vocabulary-research:hover{
+    cursor: initial;
 }
 .grid article:hover:before{
     content: '';
@@ -1047,6 +1057,9 @@ h1#page-title{
     background: #ed1c24;
     z-index: 99;    
 }
+.grid article.vocabulary-research:hover:before{
+    display: none;
+}
 .grid article:hover .node-title a{
     background: rgba(237,28,36,.8); 
 }
@@ -1054,7 +1067,14 @@ h1#page-title{
 .grid .views-row{
     margin-bottom: 12px;
 }
-
+.two-wide .views-row{
+    float: left;
+    width: 49.5%;
+    margin-right: 1%;
+}
+.two-wide .views-row:nth-child(2n){
+    margin-right: 0;
+}
 .three-wide .views-row{
     float: left;
     width: 33.06%;
@@ -1075,8 +1095,13 @@ h1#page-title{
 
 /* Stories */
 
+.view-stories.border-sep h2.title{
+    margin-bottom: 40px;
+}
+
 article.node-story.node-mini-teaser .node-title a{
     background-color: #fc0d1b;
+    font-size: 20px;
 }
 article.node-story.node-mini-teaser:hover .node-title a{
     background-color: #000;
@@ -1132,10 +1157,26 @@ article.node-story.node-mini-teaser:hover:before{
 }
 
 .group-media-area,
-.group-story-header{
-    margin-bottom: 45px;
-    padding-bottom: 45px;
-    border-bottom: 1px solid #fc0d1b;
+.group-story-content,
+.group-topics,
+.back-button,
+.border-sep{
+    margin-top: 45px;
+    padding-top: 45px;
+    border-top: 1px solid #fc0d1b;
+}
+.group-topics{
+    padding-top: 20px;
+}
+
+.faq-back a,
+.back-button a{
+    background-color: #fc0d1b;
+    color: #FFF;
+    font-size: 30px;
+    display: block;
+    max-width: 730px;
+    padding: 20px;
 }
 
 .node-type-story h2.node-title{
@@ -1150,7 +1191,581 @@ article.node-story.node-mini-teaser:hover:before{
 .node-type-story .node-created{
     font-size: 14px;
 }
+.node-type-story #content{
+    max-width: 1035px;
+}
+.type-link{
+    font-family: opensans-bold;
+}
+.field-name-field-photo-essay{
+    position: relative;
+}
+.field-name-field-featured-image-caption,
+.field-name-field-essay-caption{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
+.group-topics h3{
+    margin-top: 0;
+    font-family: opensans-light;
+    font-size: 24px;
+    text-transform: lowercase;
+    font-weight: normal;
+}
+
+.group-topics div,
+.group-topics ul,
+.group-topics li{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+.group-topics li{
+    list-style: none;
+    margin-right: 5px;
+}
+
+.group-topics li a{
+    font-size: 12px;
+    color: #FFF;
+    background-color: #4c4c4c;
+    display: block;
+    padding: 5px 10px;
+}
+
+.cycle-button{
+    position: absolute;
+    top: 43%;
+    text-shadow: 2px 2px 2px #000;
+    color: #FFF;
+    font-size: 61px;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s linear;
+    z-index: 99;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    opacity: 1;
+    z-index: 500;
+}
+.cycle-prev{
+    left: 0;
+}
+.cycle-prev:before{
+    content: '\f104';
+    padding: 0 20px 0 15px;
+}
+.cycle-next{
+    right: 0;
+}
+.cycle-next:before{
+    content: '\f105';
+    padding: 0 15px 0 20px;
+}
+
+/* Taxonomy Card */
+.group-tax-card-content{
+    font-family: opensans-semi;
+    font-size: 14px;
+}
+.group-tax-card-content a,
+.group-tax-card-content h2,
+.group-tax-card-content h2 a{
+    color: #FFF;
+}
+
+.group-tax-card-content h2{
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.vocabulary-initiatives .group-tax-card-content h2{
+    margin-bottom: 15px;
+}
+.group-tax-card-content{
+    background-color: #fc0d1b;
+    color: #FFF;
+    padding: 32px 32px 42px;
+}
+.vocabulary-person-type .group-tax-card-content,
+.vocabulary-initiatives .group-tax-card-content{
+    padding-top: 20px;
+}
+.group-tax-card-content .taxonomy-term-description,
+.group-tax-card-content .taxonomy-term-description p{
+    margin: 0;
+    line-height: 1.3;
+}
+.title-only .group-tax-card-content{
+    padding: 0;
+}
+.title-only .group-tax-card-content a{
+    padding: 32px 32px 42px;
+    display: block;
+}
+
+/* People */
+.advisors-list .results-group,
+.people-list .views-row{
+    border-top: 1px solid #ed1c24;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+.advisors-list .results-group{
+    padding-bottom: 40px;
+}
+.advisors-list .results-group .views-row{
+    margin-bottom: 6px;
+}
+.advisors-list .results-group > h3{
+    margin-top: 0;
+    font-size: 36px;
+    color: #ed1c24;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+.node-people.node-teaser .group-image-left,
+.node-people.node-teaser .group-content-right{
+    display: table-cell;
+    vertical-align: top;
+}
+.node-people.node-teaser .group-image-left{
+    width: 200px;
+    padding-right: 15.75%;
+}
+.node-people.node-teaser .group-image-left img{
+    min-width: 200px;
+}
+.node-people.node-teaser .group-content-right{
+    
+}
+.node-type-people .field-name-field-email a,
+.node-people.node-teaser a,
+.node-people.node-mini-teaser a{
+    color: #000;
+}
+.node-people.node-teaser h2.node-title{
+    font-size: 24px;
+    font-family: opensans-semi;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+.node-people.node-mini-teaser h2.node-title{
+    font-size: 18px;
+    font-family: opensans-semi;
+    color: #000;
+}
+.group-person-affiliation{
+    margin-bottom: 20px;
+}
+.group-person-affiliation .field-label{
+    color: #000;
+    font-weight: normal;
+}
+.field-name-field-location,
+.field-name-field-joined-swearer,
+.node-people .field-name-field-concentration,
+.node-people .field-name-field-leadership-title,
+.node-people .field-name-field-title-dept{
+    font-style: italic;
+    font-size: 14px;
+}
+
+.node-people .field-name-field-email{
+    font-family: opensans-semi;
+}
+.node-people.node-mini-teaser .node-content > h2,
+.node-people.node-mini-teaser .node-content > div{
+    display: inline-block;
+    margin-right: 10px;
+}
+.node-people.node-mini-teaser .field-name-field-title-dept .field-items > .field-item{
+    display: inline-block;
+}
+.node-people.node-mini-teaser .field-name-field-title-dept .field-items > .field-item:after{
+    content: ', ';
+    margin-right: 3px;
+}
+.node-people.node-mini-teaser .field-name-field-title-dept .field-items > .field-item:last-child:after{
+    content: '';
+    margin-right: 0;
+}
+
+.node-type-people .group-image-left,
+.node-type-people .group-content-right{
+    display: table-cell;
+    vertical-align: top;
+}
+.node-type-people .group-image-left{
+    width: 32%;
+    padding-right: 3%;
+}
+.node-type-people .group-content-right{
+    width: 65%;
+}
+.node-type-people h2.node-title{
+    font-size: 30px;
+    font-family: opensans-semi;
+    color: #000;
+    margin-bottom: 20px;
+}
+.node-type-people .field-name-field-email{
+    font-family: opensans-bold;
+}
+.node-type-people .paragraphs-items-field-courses,
+.node-type-people .paragraphs-items-field-related-work,
+.node-type-people .field-name-body,
+.node-type-people .group-info-top{
+    margin-bottom: 30px;
+}
+.node-type-people .field-name-field-related-work h2.field-label,
+.node-type-people .field-name-field-courses h2.field-label{
+    font-size: 18px;
+    font-family: opensans-semi;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.node-type-people .field-name-field-courses .content > .field{
+    display: inline-block;
+    margin-right: 7px;
+}
+.node-type-people .field-name-field-courses a{
+    color: #0073b9;
+}
+.node-type-people .field-name-field-project-title{
+    font-size: 14px;
+    font-family: opensans-semi;
+    margin-bottom: 3px;
+}
+
+.node-type-people .field-name-field-related-work > .field-items > .field-item{
+    margin-bottom: 15px
+}
+.node-type-people .field-name-field-related-work > .field-items > .field-item:last-child{
+    margin-bottom: 0;
+}
+.node-type-people .field-name-field-project-url{
+    margin-top: 3px;
+}
+.node-type-people .field-name-field-project-url a{
+    color: #000;
+    font-family: opensans-semi;
+}
+
+/* Programs */ 
+
+.group-prog-apply .field-name-field-application-url,
+.group-prog-apply .field-name-field-apply,
+.group-prog-about .taxonomy-term-description,
+.group-prog-about .fellows-link{
+    display: table-cell;
+    vertical-align: top;
+}
+.group-prog-about .taxonomy-term-description,
+.group-prog-apply .field-name-field-apply{
+    padding-right: 80px;
+    box-sizing: border-box;
+}
+.group-prog-about .fellows-link,
+.group-prog-apply .field-name-field-application-url{
+    width: 140px;
+}
+.group-prog-about .fellows-link,
+.group-prog-apply .field-name-field-application-url a{
+    font-size: 30px;
+    text-transform: lowercase;
+    line-height: 1.2;
+}
+
+.group-bottom-links a{
+    background-color: #fc0d1b;
+    color: #FFF;
+    font-size: 30px;
+    float: left;
+    display: block;
+    width: 49.5%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 1%;
+    text-transform: lowercase;
+}
+.group-bottom-links a:last-child{
+    margin-right: 0;
+}
+
+.faq-list .views-row{
+    padding: 30px 0 15px;
+    border-top: 1px solid #fc0d1b;
+}
+
+.faq-list .field-name-field-question{
+    font-family: opensans-bold;
+}
+
+.prog-fellows-list .results-group > h3{
+    font-family: opensans-bold;
+    font-size: 36px;
+    color: #FFF;
+    background-color: #fc0d1b;
+    padding: 15px 15px 15px 90px;
+    background-image: url(images/fellow-arrow.png);
+    background-position: 20px center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.prog-fellows-list .results-group > h3.open{
+    background-image: url(images/fellow-arrow-down.png);
+}
+.prog-fellows-list .results-group .results{
+    padding: 40px 40px 40px 90px;
+}
+.prog-fellows-list .results-group .results .views-row{
+    margin-bottom: 10px;
+}
+.prog-fellows-list .results-group .results .views-field-title{
+    font-family: opensans-bold;
+}
+.prog-fellows-list .results-group .results a{
+    font-size: 14px;
+    color: #000;
+}
+
+.results:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+
+/* Fellow Detail Page */
+.node-type-program-fellows .field-name-field-program ul{
+    padding: 0;
+    margin: 0;
+}
+.node-type-program-fellows .field-name-field-program ul li{
+   list-style: none;
+   font-size: 48px;
+   font-family: opensans;
+   color: #ed1c24;
+   font-weight: normal;
+   margin-top: 0;
+   line-height: 1;
+   margin-bottom: 20px;
+}
+
+.node-type-program-fellows .group-image-left,
+.node-type-program-fellows .group-content-right{
+    display: inline-block;
+    vertical-align: top;
+}
+.node-type-program-fellows .group-image-left{
+    width: 66.66%;
+}
+.node-type-program-fellows .group-content-right{
+    width: 33.33%;
+    box-sizing: border-box;
+    padding-left: 40px;
+}
+.node-type-program-fellows .group-name-wrap{
+    font-size: 48px;
+    font-family: opensans-semi;
+    line-height: 1.2;
+}
+.node-type-program-fellows .group-content-right{
+    font-size: 30px;
+}
+.node-type-program-fellows .group-content-right .field-label{
+    font-size: 18px;
+    color: #000;
+}
+.node-type-program-fellows .group-content-right .date-display-single{
+    font-family: opensans-semi;
+}
+.node-type-program-fellows .field-name-field-project-title{
+    font-family: opensans-semi;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.group-image-caption{
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Events */
+.view-events .views-row{
+    border-top: 1px solid #ed1c24;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+.node-event.node-teaser .node-content{
+    display: table;
+    width: 100%;
+}
+.group-event-image,
+.group-date,
+.group-event-info{
+    display: table-cell;
+    vertical-align: top;
+}
+.group-date{
+    width: 32%;
+    padding-right: 3%;
+}
+.group-date .field-name-field-event-date{
+    border: 1px solid #ed1c24;
+    border-top: 12px solid #ed1c24;
+    font-size: 24px;
+    font-family: opensans-semi;
+    padding: 10px 10px 25px;   
+}
+.group-event-info{
+    width: 68%;
+}
+.node-type-event .group-event-image,
+.view-events .attachment .group-event-image{
+    width: 40%;
+    padding-right: 3%;
+}
+.node-type-event .group-event-info,
+.view-events .attachment .group-event-info{
+    width: 60%;
+}
+.group-event-info h2.node-title{
+    font-size: 24px;
+    font-family: opensans-semi;
+    margin-bottom: 17px;
+    line-height: 1.3;
+}
+.group-event-info h2.node-title a{
+    color: #000;
+}
+.group-event-info .field-name-field-speaker-name{
+    font-family: opensans-bold;
+    font-size: 14px;
+}
+.group-event-info .field-name-field-title-dept{
+    font-style: italic;
+    font-size: 14px;
+}
+.group-date-info,
+.group-speaker-info,
+.group-time-location{
+    margin-bottom: 20px;
+}
+.group-date-info,
+.group-time-location > div{
+    display: inline-block;
+    font-size: 18px;
+    font-family: opensans-semi;
+    margin-right: 30px;
+}
+.group-date-info > div,
+.attachment .group-time-location > div{
+    display: block;
+    margin: 0;
+}
+.group-time-location > div:last-child{
+    margin-right: 0;
+}
+.views-field-field-event-location a,
+.field-name-field-event-location a{
+    color: #000;
+}
+.view-events .views-field-view-node a,
+.link-to-event a{
+    font-family: opensans-bold;
+    color: #000;
+}
+.node-type-event h2.node-title,
+.view-events .attachment .views-field-title a{
+    color: #000;
+    font-size: 36px;
+    font-family: opensans-semi;
+    line-height: 1.3;
+}
+.node-type-event h2.node-title,
+.view-events .attachment .views-field-title{
+    margin-bottom: 30px;
+}
+.view-events .attachment .speaker-info{
+    margin-bottom: 20px;
+}
+.node-type-event .field-name-field-speaker-name,
+.view-events .attachment .views-field-field-speaker-name{
+    font-size: 24px;
+    font-family: opensans-semi;
+    
+}
+.node-type-event .field-name-field-title-dept,
+.view-events .attachment .views-field-field-title-dept{
+    font-size: 16px;
+    font-style: italic;
+}
+.node-type-event .field-name-field-event-sponsor,
+.node-type-event .field-name-field-event-registration-info{
+    font-size: 14px;
+}
+.group-event-buttons{
+    display: table;
+    width: 100%;
+    margin-top: 40px;
+}
+.group-event-buttons > div{
+    display: table-cell;
+    width: 50%;
+}
+.add-event-button{
+    padding-right: .5%;
+}
+.field-name-field-event-registration-url{
+    padding-left: .5%;
+}
+.node-type-event .addeventatc:hover,
+.node-type-event .addeventatc:focus,
+.node-type-event .addeventatc:active,
+.node-type-event .addeventatc,
+.field-name-field-event-registration-url a{
+    background-color: #ed1c24;
+    color: #FFF !important;
+    font-size: 30px;
+    display: block;
+    top: 0;
+    background-image: none;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    font-family: opensans;
+    line-height: 1;
+    padding: 30px 15px;
+}
+.node-type-event .addeventatc .addeventatc_icon{
+    display: none;
+}
+
+.node-type-event .group-event-info h2.field-label{
+    font-size: 18px;
+    color: #000;
+    font-family: opensans-semi;
+    margin-bottom: 15px;
+}
+.node-type-event .group-event-info section{
+    margin-bottom: 40px;
+    padding-right: 40px;
+}
+.node-type-event .group-event-info section:last-child{
+    margin-bottom: 0;
+}
 /*
  * Footer
  */

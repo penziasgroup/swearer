@@ -20,6 +20,11 @@ function extra_fields_field_extra_fields() {
             'weight' => 0,
             'type' => 'hidden',
         );
+        $extra['node'][$type->type]['display']['back_stories'] = array(
+            'label' => t('Back Button'),
+            'weight' => 0,
+            'type' => 'hidden',
+        );
     }
     if($type->type == 'event'){
       $extra['node'][$type->type]['display']['add_this'] = array(
@@ -71,7 +76,12 @@ function extra_fields_field_extra_fields() {
             'label' => t('Extra Field: Fellows Link'),
             'weight' => 0,
             'type' => 'hidden',
-      );  
+      ); 
+      $extra['taxonomy_term'][$bundle]['display']['fellows_link_2'] = array(
+            'label' => t('Extra Field: Fellows Link 2'),
+            'weight' => 0,
+            'type' => 'hidden',
+      ); 
     }
   }
   
@@ -103,6 +113,11 @@ function extra_fields_node_view($node, $view_mode, $langcode) {
       '#node' => $node,
       '#view_mode' => $view_mode
     );  
+    $node->content['back_stories'] = array(
+      '#theme' => 'extra_fields_back_stories',
+      '#node' => $node,
+      '#view_mode' => $view_mode
+    );
   }
   if ($node->type == 'event'){
       $node->content['time_only'] = array(
@@ -146,8 +161,18 @@ function extra_fields_taxonomy_term_view($term, $view_mode, $langcode) {
             '#term' => $term,
             '#view_mode' => $view_mode,
         );
+        $term->content['fellows_link_2'] = array(
+            '#theme' => 'extra_fields_term_fellows_link',
+            '#term' => $term,
+            '#view_mode' => $view_mode,
+        );
+        $term->content['title'] = array(
+            '#theme' => 'extra_fields_term_title_no_link',
+            '#term' => $term,
+            '#view_mode' => $view_mode,
+        );
     }
-    if(in_array($view_mode, array('taxonomy_card','taxonomy_front'))){
+    if(in_array($view_mode, array('taxonomy_card'))){
         $term->content['title'] = array(
             '#theme' => 'extra_fields_term_title',
             '#term' => $term,
@@ -164,6 +189,9 @@ function extra_fields_theme($existing, $type, $theme, $path) {
     'extra_fields_title' => array(
       'variables' => array('node' => NULL, 'view_mode' => NULL),
     ),
+      'extra_fields_back_stories' => array(
+      'variables' => array('node' => NULL, 'view_mode' => NULL),
+    ),
     'extra_fields_created' => array(
       'variables' => array('node' => NULL, 'view_mode' => NULL),
     ),
@@ -171,6 +199,9 @@ function extra_fields_theme($existing, $type, $theme, $path) {
       'variables' => array('node' => NULL, 'view_mode' => NULL),
     ),
     'extra_fields_term_title' => array(
+      'variables' => array('term' => NULL, 'view_mode' => NULL),
+    ),     
+    'extra_fields_term_title_no_link' => array(
       'variables' => array('term' => NULL, 'view_mode' => NULL),
     ),
     'extra_fields_term_faq_link' => array(
@@ -203,6 +234,14 @@ function theme_extra_fields_created($variables) {
   return $output;
 }
 
+function theme_extra_fields_back_stories($variables) {
+  $node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+  $output = '<div class="back-button">';
+  $output .= l('Browse All Stories', 'action');
+  $output .= '</div>';
+  return $output;
+}
 
 function theme_extra_fields_term_title($variables){
     $term = $variables['term'];
@@ -215,6 +254,16 @@ function theme_extra_fields_term_title($variables){
     }else{
         $output .= l($name, $entity_uri['path']);
     }
+    $output .= '</h2>';
+    return $output;
+}
+
+function theme_extra_fields_term_title_no_link($variables){
+    $term = $variables['term'];
+    $vocabulary = $term->vocabulary_machine_name;
+    $name = $term->name;
+    $output = '<h2 class="taxonomy-title">';
+    $output .= t($name);
     $output .= '</h2>';
     return $output;
 }
@@ -254,7 +303,7 @@ function theme_extra_fields_term_fellows_link($variables){
     $view = views_get_view_result('program_fellows', 'page','NULL', $tid);
     $result = count($view);
     if ($result) {
-        $output = l('Fellows', '/' . $current_path . '/fellows');
+        $output = l('meet the ' . $name . ' Fellows', '/' . $current_path . '/fellows', array('attributes' => array('class' => array('fellows-link'))));
     }
     return $output;
 }
@@ -263,10 +312,27 @@ function theme_extra_fields_title($variables) {
   $node = $variables['node'];
   $view_mode = $variables['view_mode'];
   $entity_uri = entity_uri('node', $node);
-  $link_title = l($node->title, $entity_uri['path']);
+  $title = $node->title;
+  
+ if($node->type == 'story'){
+      $story_type = $node->field_story_type[LANGUAGE_NONE][0]['tid'];
+      switch($story_type){
+          case '33':
+              $title .= '. <span class="type-link">watch></span>';
+          break;
+          case '34':
+              $title .= '. <span class="type-link">listen></span>';
+          break;
+          default:
+              $title .= '. <span class="type-link">read></span>';
+          break;
+      }
+  }
+  
+  $link_title = l($title, $entity_uri['path'], array('html' => TRUE));
   
   if($node->type == 'group_networks'){
-      $link_title = $node->title;
+      $link_title = $title;
   }
   
   $output = '<h2 class="node-title">';
@@ -291,7 +357,7 @@ function theme_extra_fields_add_this($variables) {
   $startDate = format_date($eventTimeRaw, $type = 'custom', $format='m/d/Y H:i');
   
   
-  $output = '<div title="" class="addeventatc" id="addeventatc1" aria-controls="addeventatc1-drop" aria-expanded="false" tabindex="0" style="visibility: visible;"> add to calendar';
+  $output = '<div class="add-event-button"><div title="" class="addeventatc" id="addeventatc1" aria-controls="addeventatc1-drop" aria-expanded="false" tabindex="0" style="visibility: visible;"> add to calendar';
   $output .= '<span class="timezone atc_node">America/New_York</span>';
   $output .= '<span class="title atc_node">' . $node->title . '</span>';
   $output .= '<span class="start atc_node">' . $startDate . '</span>';
@@ -304,7 +370,7 @@ function theme_extra_fields_add_this($variables) {
     $output .= '<span class="location atc_node">' . $location . '</span>';
   }
   $output .= '<span class="date_format atc_node">MM/DD/YYYY</span>';
-  $output .= '</div>';
+  $output .= '</div></div>';
   return $output;
 }
 
