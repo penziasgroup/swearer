@@ -1249,6 +1249,7 @@ article.node-story.node-mini-teaser:hover:before{
 .group-topics li{
     list-style: none;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .group-topics li a{
