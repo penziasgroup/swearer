@@ -169,6 +169,10 @@
     .burger img{
         width: 40px;
     }
+    #footer #block-menu-block-2,
+    #footer #block-block-4{
+        margin-left: 30px;
+    }
 }
 
 @media only screen and (max-width: 820px) {
@@ -350,6 +354,16 @@
         width: 100%;
         margin-right: 0;
     }
+    #footer #block-block-3{
+        margin-right: 40px;
+        margin-top: 20px;
+    }
+    #footer #block-block-4{
+        clear: both;
+        float: left;
+        margin-left: 0;
+        margin-top: 20px;
+    }
 }
 @media only screen and (max-width: 680px) {
     #branding{
@@ -481,5 +495,12 @@
     }
     .node-type-story h2.node-title{
         font-size: 36px;
+    }
+    #footer #block-block-2,
+    #footer #block-menu-block-2,
+    #footer #block-block-4,
+    #footer #block-block-3{
+        float: none;
+        margin: 0 0 20px 0;
     }
 }

@@ -1914,6 +1914,9 @@ article.node-story.node-mini-teaser:hover:before{
 #footer #block-block-3,
 #footer #block-block-4{
     float: right;
+
+}
+#footer #block-block-4{
     margin-left: 80px;
 }
 
@@ -1941,6 +1944,7 @@ article.node-story.node-mini-teaser:hover:before{
 #footer #block-menu-block-2 {
     float: right;
     font-size: 18px;
+    margin-left: 80px;
 }
 #footer #block-menu-block-2 .block-content ul.menu {
     padding: 0;
