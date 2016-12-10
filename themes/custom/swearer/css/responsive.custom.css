@@ -54,7 +54,16 @@
         padding-right: 90px;
     }
 }
-
+@media only screen and (max-width: 1023px) {
+    .views-exposed-form .views-exposed-widget{
+       width: 49.33%;
+       padding-right: 1.33%;
+    }
+    .views-exposed-form .views-exposed-widget:nth-child(2n),
+    .views-exposed-form .views-exposed-widget:nth-child(4n){
+        padding-right: 0;
+    }
+}
 @media only screen and (max-width: 980px) {
     .group-tax-card-content h2{
         font-size: 2.45vw;
@@ -97,6 +106,47 @@
     }
     .prog-fellows-list .results-group .results{
         padding: 30px 40px 30px 50px;
+    }
+    .group-description-links .field-name-field-vertical-links a{
+        font-size: 24px;
+        padding-right: 20px;
+    }
+    .group-description-links .taxonomy-term-description{
+        padding-right: 50px;
+    }
+    .group-large-content h2.node-title{
+        margin-bottom: 10px;
+    }
+    .group-large-content .field-name-body{
+        font-size: 14px;
+    }
+    .group-large-image .type-link a{
+        font-size: 18px;
+        padding: 10px 70px 10px 20px;
+    }
+    .group-large-image .type-link{
+        bottom: 30px;
+    }
+    .group-large-image, .group-large-content{
+        display: block;
+        padding: 0;
+        width: 100%;
+        min-width: 0;
+    }
+    .group-large-image{
+        margin-bottom: 20px;
+    }
+    .field-name-field-horizontal-links .field-item a{
+        font-size: 20px;
+        padding: 11px 20px 13px;    
+    }
+    .grid.explore article .node-title a{
+        font-size: 26px;
+        padding: 6px 15px 10px;
+    }
+    .field-name-field-cta-description a{
+        font-size: 16px;
+        padding: 15px 10px 30px;
     }
 }
 
@@ -228,6 +278,18 @@
         font-size: 22px;
         padding: 20px 15px;
     }
+    .group-description-links .taxonomy-term-description{
+        padding-right: 30px;
+    }
+    .group-description-links .field-name-field-vertical-links a {
+        font-size: 18px;
+        padding-right: 18px;
+    }
+    .views-exposed-form .views-exposed-widget{
+       width: 100%;
+       float: none;
+       padding-right: 0;
+    }
 }
 
 @media only screen and (max-width: 620px) {
@@ -285,6 +347,20 @@
         margin-bottom: 10px;
     }
     .group-event-buttons > div:last-child{
+        margin-bottom: 0;
+    }
+    .group-description-links .taxonomy-term-description,
+    .group-description-links .field-name-field-vertical-links{
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    .field-name-field-horizontal-links .field-item{
+        display: block;
+        width: 100%;
+        margin: 0 0 10px;
+    }
+    .field-name-field-horizontal-links .field-item:last-child{
         margin-bottom: 0;
     }
 }

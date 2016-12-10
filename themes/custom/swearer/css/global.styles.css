@@ -1121,7 +1121,8 @@ h1#page-title{
 
 article.node-story.node-mini-teaser .node-title a{
     background-color: #fc0d1b;
-    font-size: 20px;
+    font-size: 16px;
+    padding: 15px;
 }
 article.node-story.node-mini-teaser:hover .node-title a{
     background-color: #000;
@@ -1166,14 +1167,18 @@ article.node-story.node-mini-teaser:hover:before{
     -moz-appearance: none;
     appearance: none;
     color: #FFF;
-    font-size: 24px;
+    font-size: 18px;
     cursor: pointer;
+    width: 100%;
 }
 .form-type-select select option{
     color: #000;
 }
 .form-type-select select:focus {
     outline: none;
+}
+.ctools-auto-submit-processed .views-exposed-form .views-submit-button{
+    display: none;
 }
 
 .group-media-area,
