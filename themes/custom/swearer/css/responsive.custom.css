@@ -75,6 +75,9 @@
     .node-type-people .group-content-right{
         width: 60%;
     }
+    .group-date .field-name-field-event-date{
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 920px) {
@@ -198,6 +201,33 @@
     .group-prog-apply .field-name-field-application-url a{
         font-size: 20px;
     }
+    .view-events .attachment .group-event-info,
+    .view-events .attachment .group-event-image,
+    .node-type-event .group-event-image,
+    .node-type-event .group-event-info,
+    .group-date,
+    .group-event-info{
+        display: block;
+        width: 100%;
+        padding-right: 0;
+    }
+    .group-event-image,
+    .view-events .attachment .group-event-image{
+        margin-bottom: 20px;
+    }
+    .group-date .field-name-field-event-date{
+        padding: 0;
+        border: none;
+        margin-bottom: 6px;
+    }
+    .node-type-event .addeventatc:hover,
+    .node-type-event .addeventatc:focus,
+    .node-type-event .addeventatc:active,
+    .node-type-event .addeventatc,
+    .field-name-field-event-registration-url a{
+        font-size: 22px;
+        padding: 20px 15px;
+    }
 }
 
 @media only screen and (max-width: 620px) {
@@ -213,6 +243,10 @@
     }
     .three-wide .group-tax-card-content{
         height: auto !important;
+    }
+    .group-date-info, .group-time-location > div{
+        display: block;
+        margin-right: 0;
     }
 }
 
@@ -242,5 +276,15 @@
     .node-people.node-teaser .group-image-left{
         padding-right: 0;
         margin-bottom: 8px;
+    }
+    .group-event-buttons > div{
+        display: block;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-bottom: 10px;
+    }
+    .group-event-buttons > div:last-child{
+        margin-bottom: 0;
     }
 }
