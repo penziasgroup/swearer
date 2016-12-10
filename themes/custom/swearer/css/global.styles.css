@@ -1953,3 +1953,62 @@ article.node-story.node-mini-teaser:hover:before{
 #footer #block-menu-block-2 .block-content ul.menu li {
     list-style: none;
 }
+
+/* Social Media */
+#block-views-group-networks-block-2 .block-title,
+#block-views-group-networks-block-1 .block-title{
+    margin-bottom: 40px;
+}
+#block-views-group-networks-block-2 h2.node-title{
+    display: none;
+}
+#block-views-group-networks-block-1 h2.node-title{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#block-views-group-networks-block-1 .views-row{
+    margin-bottom: 40px;
+}
+.node-group-networks .field{
+    float: left;
+    margin-right: 2.15vw;
+    margin-bottom: 2.15vw;
+}
+.node-group-networks .field-item a{
+    width: 12.75vw;
+    height: 12.75vw;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    display: block;
+    background-size: cover;
+}
+#block-views-group-networks-block-1 .node-group-networks .field{
+    margin-right: 1.1vw;
+    margin-bottom: 1.1vw;    
+}
+#block-views-group-networks-block-1 .node-group-networks .field-item a{
+    width: 5.7vw;
+    height: 5.7vw;
+}
+#block-views-group-networks-block-1 .node-group-networks .field-item:last-child,
+.node-group-networks .field:last-child{
+    margin-right: 0;
+}
+.field-name-field-connect-fb a{
+    background-image: url(images/facebook.png);
+}
+.field-name-field-connect-twitter a{
+    background-image: url(images/twitter.png);
+}
+.field-name-field-connect-youtube a{
+    background-image: url(images/youtube.png);
+}
+.field-name-field-connect-instagram a{
+    background-image: url(images/instagram.png);
+}
+.field-name-field-connect-linkedin a{
+    background-image: url(images/linkedin.png);
+}
+.field-name-field-connect-google a{
+    background-image: url(images/google_plus.png);
+}

@@ -53,6 +53,22 @@
     .prog-fellows-list .results-group .results{
         padding-right: 90px;
     }
+    .node-group-networks .field{
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    .node-group-networks .field-item a{
+        width: 178px;
+        height: 178px;
+    }
+    #block-views-group-networks-block-1 .node-group-networks .field-item a{
+        width: 80px;
+        height: 80px;
+    }
+    #block-views-group-networks-block-1 .node-group-networks .field{
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
 }
 @media only screen and (max-width: 1023px) {
     .views-exposed-form .views-exposed-widget{
@@ -419,6 +435,22 @@
         margin-left: 25px;
         margin-top: 29px;
     }
+.node-group-networks .field{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.node-group-networks .field-item a{
+    width: 60px;
+    height: 60px;
+}
+#block-views-group-networks-block-1 .node-group-networks .field{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#block-views-group-networks-block-1 .node-group-networks .field-item a{
+    width: 40px;
+    height: 40px;
+}
 }
 
 @media only screen and (max-width: 500px) {
