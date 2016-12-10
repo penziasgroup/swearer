@@ -926,25 +926,25 @@ h1#page-title{
     background-position: top right;
 }
 
-#block-menu-block-3 h2.block-title{
+.pillar-menu h2.block-title{
         font-size: 14.3vw;
         text-transform: capitalize;
 }
-#block-menu-block-3 ul.menu{
+.pillar-menu ul.menu{
     padding: 0;
-    margin: 65px 0 100px;
+    margin: 4.65vw 0 7.15vw;
 }
-#block-menu-block-3 ul.menu li{
+.pillar-menu ul.menu li{
     display: inline-block;
     width: 33%;
     padding: 0;
     margin-right: .5%;
     text-align: center;
 }
-#block-menu-block-3 ul.menu li.last{
+.pillar-menu ul.menu li.last{
     margin-right: 0;
 }
-#block-menu-block-3 ul.menu li a{
+.pillar-menu ul.menu li a{
     display: block;
     background-color: #ed1c24;
     font-size: 4.3vw;
@@ -954,7 +954,7 @@ h1#page-title{
 }
 
 #block-views-homepage-statement-block,
-#block-menu-block-4{
+.audience-menu{
     display: inline-block;
     vertical-align: top;
 }
@@ -963,49 +963,50 @@ h1#page-title{
     width: 66.66%;
 }
 
-#block-menu-block-4{
+.audience-menu{
     width: 28%;
     margin-left: 5.3%;
 }
 
 #block-views-homepage-statement-block .views-field-body{
-    font-size: 30px;
+    font-size: 2.15vw;
+    padding: 3.57vw 2vw 5vw 2.5vw;
     line-height: 1.4;
     background-color: rgba(255,255,255,.7);
     margin-bottom: 7px;
-    padding: 50px 70px 70px;
 }
 #block-views-homepage-statement-block .views-field-field-statement-link a{
-    font-size: 36px;
-    line-height: 1;
+    font-size: 2.58vw;
+    padding: 1.22vw 2.2vw 1.45vw;
+    line-height: 1.2;
     background-color: #ed1c24;
     color: #FFF;
-    display: block;
-    padding: 19px 70px 25px;    
+    display: block;  
 }
 
-#block-menu-block-4 ul.menu{
+.audience-menu ul.menu{
     padding: 0;
     margin: 0;
 }
 
-#block-menu-block-4 ul.menu li{
+.audience-menu ul.menu li{
     padding: 0;
-    margin: 0 0 5px;
+    margin: 0 0 .35vw;
     list-style: none;
 }
 
-#block-menu-block-4 ul.menu li.last{
+.audience-menu ul.menu li.last{
     margin-bottom: 0;
 }
 
-#block-menu-block-4 ul.menu li a{
+.audience-menu ul.menu li a{
     background-color: #ed1c24;
     color: #FFF;
-    font-size: 36px;
-    padding: 13px 30px;
+    font-size: 2.58vw;
+    padding: 1.22vw 2.2vw 1.45vw;
     display: block;
     text-transform: lowercase;
+    line-height: 1.2;
 }
 
 #block-views-stories-block-2{
@@ -1033,13 +1034,33 @@ h1#page-title{
     width: 100%;
     box-sizing: border-box;
 }
+.grid.explore article .node-title{
+    top: 0;
+    left: 0;
+    bottom: initial;
+    width: auto;
+}
 .grid article .node-title a{
     color: #FFF;
-    font-size: 24px;
+    font-size: 1.71vw;
     line-height: 1.3;
     background-color: rgba(0,0,0,.5);
     padding: 18px 30px;
     display: block;
+}
+.grid.explore article .node-title a{
+    background-color: #fc0d1b;
+    padding: 4px 15px 11px;
+    line-height: 1;
+    font-size: 36px;
+}
+.field-name-field-cta-description a{
+    background-color: #fc0d1b;
+    color: #FFF;
+    display: block;
+    font-size: 19px;
+    line-height: 1.3;
+    padding: 15px 10px 35px;
 }
 .grid article:hover{
     cursor: pointer;
@@ -1062,6 +1083,9 @@ h1#page-title{
 }
 .grid article:hover .node-title a{
     background: rgba(237,28,36,.8); 
+}
+.grid article.node-call-to-action:hover .node-title a{
+    background-color: #ed1c24;
 }
 
 .grid .views-row{
@@ -1094,10 +1118,6 @@ h1#page-title{
 }
 
 /* Stories */
-
-.view-stories.border-sep h2.title{
-    margin-bottom: 40px;
-}
 
 article.node-story.node-mini-teaser .node-title a{
     background-color: #fc0d1b;
@@ -1173,7 +1193,7 @@ article.node-story.node-mini-teaser:hover:before{
 .back-button a{
     background-color: #fc0d1b;
     color: #FFF;
-    font-size: 30px;
+    font-size: 2.14vw;
     display: block;
     max-width: 730px;
     padding: 20px;
@@ -1282,10 +1302,12 @@ article.node-story.node-mini-teaser:hover:before{
 }
 
 .group-tax-card-content h2{
-    font-size: 24px;
+    font-size: 1.72vw;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
-.vocabulary-initiatives .group-tax-card-content h2{
+.vocabulary-initiatives .group-tax-card-content h2,
+.vocabulary-research .group-tax-card-content h2{
     margin-bottom: 15px;
 }
 .group-tax-card-content{
@@ -1488,7 +1510,7 @@ article.node-story.node-mini-teaser:hover:before{
 .group-bottom-links a{
     background-color: #fc0d1b;
     color: #FFF;
-    font-size: 30px;
+    font-size: 2.14vw;
     float: left;
     display: block;
     width: 49.5%;
@@ -1512,13 +1534,14 @@ article.node-story.node-mini-teaser:hover:before{
 
 .prog-fellows-list .results-group > h3{
     font-family: opensans-bold;
-    font-size: 36px;
+    font-size: 2.57vw;
     color: #FFF;
     background-color: #fc0d1b;
-    padding: 15px 15px 15px 90px;
+    padding: 15px 15px 15px 6.4vw;
     background-image: url(images/fellow-arrow.png);
     background-position: 20px center;
     background-repeat: no-repeat;
+    background-size: 2.5%;
     cursor: pointer;
     margin-bottom: 0;
 }
@@ -1527,7 +1550,7 @@ article.node-story.node-mini-teaser:hover:before{
     background-image: url(images/fellow-arrow-down.png);
 }
 .prog-fellows-list .results-group .results{
-    padding: 40px 40px 40px 90px;
+    padding: 40px 40px 40px 6.4vw;
 }
 .prog-fellows-list .results-group .results .views-row{
     margin-bottom: 10px;
@@ -1765,6 +1788,107 @@ article.node-story.node-mini-teaser:hover:before{
 }
 .node-type-event .group-event-info section:last-child{
     margin-bottom: 0;
+}
+
+/* Taxonomy Detail Pages */
+.group-large-image,
+.group-large-content{
+    display: table-cell;
+    vertical-align: top;
+}
+.group-large-image{
+    width: 73%;
+}
+.group-tag-wrap{
+    position: relative;
+}
+.group-large-image .type-link{
+    position: absolute;
+    right: 0;
+    bottom: 45px;
+}
+.group-large-image .type-link a{
+    font-size: 30px;
+    color: #FFF;
+    background-color: #ed1c24;
+    padding: 13px 90px 13px 30px;
+    display: block;
+}
+.group-large-image img{
+    display: block;
+}
+.group-large-content{
+    width: 25%;
+    min-width: 345px;
+    padding-left: 2%;
+}
+.group-large-content h2.node-title{
+    margin-bottom: 20px;
+}
+.group-large-content h2.node-title,
+.group-large-content h2.node-title a{
+    font-size: 24px;
+    font-family: opensans-bold;
+    color: #000;
+    line-height: 1.3;
+}
+.group-large-content .field-name-body{
+    font-size: 16px;
+}
+
+.group-description-links .taxonomy-term-description{
+    padding-right: 70px;
+}
+
+.group-description-links .taxonomy-term-description,
+.group-description-links .field-name-field-vertical-links{
+    display: table-cell;
+    vertical-align: top;
+}
+
+.group-description-links .field-name-field-vertical-links .field-item{
+    border-bottom: 1px solid #ed1c24;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.group-description-links .field-name-field-vertical-links .field-item:last-child{
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.group-description-links .field-name-field-vertical-links a{
+    font-size: 30px;
+    line-height: 1.2;
+    display: block;
+    padding-right: 30px;
+}
+.field-name-field-horizontal-links .field-item{
+    width: 49.75%;
+    margin-right: .5%;
+    display: inline-block;
+}
+.field-name-field-horizontal-links .field-item:nth-child(2n){
+    margin-right: 0;
+}
+.field-name-field-horizontal-links .field-item a{
+    display: block;
+    background-color: #ed1c24;
+    color: #FFF;
+    font-size: 30px;
+    padding: 15px 30px 18px;
+}
+
+/* Generic Block/Heading Styles */
+
+.iframe-responsive{
+    width: 100%;
+}
+
+.view-stories.border-sep h2.title,
+.view-call-to-action h2.title,
+.landing-block h2.block-title{
+    margin-bottom: 45px;
+    text-transform: lowercase;
 }
 /*
  * Footer

@@ -7,10 +7,13 @@
   Drupal.behaviors.equalHeights = {
     attach: function (context, settings) {
 
-        $('.grid article h2.node-title a').matchHeight({   
+        $('.grid:not(.explore) article h2.node-title a').matchHeight({   
             byRow: false
         });
-        $('.grid article').matchHeight({   
+        $('.grid.explore article .field-name-field-cta-description a').matchHeight({   
+            byRow: false
+        });
+        $('.grid:not(.explore) article').matchHeight({   
             byRow: false
         });
         $('.grid .group-tax-card-content').matchHeight({

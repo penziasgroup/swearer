@@ -72,7 +72,7 @@ function swearer_preprocess_node(&$vars) {
     $type = $vars['type'];
     $mode = $vars['view_mode'];
     
-    if($mode == 'teaser' || $mode == 'mini_teaser'){
+    if($mode == 'teaser' || $mode == 'mini_teaser' || $mode == 'large_feature'){
         $vars['title'] = '';
     }
     if($mode == 'full' && $type == 'story'){
