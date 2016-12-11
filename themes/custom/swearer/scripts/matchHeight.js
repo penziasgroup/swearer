@@ -16,7 +16,10 @@
         $('.grid:not(.explore) article').matchHeight({   
             byRow: false
         });
-        $('.grid .group-tax-card-content').matchHeight({
+        $('.grid:not(.title-only) .group-tax-card-content').matchHeight({
+            byRow: false
+        });
+        $('.grid.title-only .group-tax-card-content h2 a').matchHeight({
             byRow: false
         });
 

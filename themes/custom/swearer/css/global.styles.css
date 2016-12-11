@@ -1425,7 +1425,22 @@ article.node-story.node-mini-teaser:hover:before{
     content: '';
     margin-right: 0;
 }
-
+.node-type-people .field-name-field-person-type{
+    font-size: 48px;
+    color: #ed1c24;
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #ed1c24;
+}
+.node-type-people .field-name-field-person-type ul{
+    padding: 0;
+    margin: 0;
+}
+.node-type-people .field-name-field-person-type ul li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 .node-type-people .group-image-left,
 .node-type-people .group-content-right{
     display: table-cell;
@@ -1895,6 +1910,16 @@ article.node-story.node-mini-teaser:hover:before{
 .landing-block h2.block-title{
     margin-bottom: 45px;
     text-transform: lowercase;
+}
+.block ul.pager{
+    padding-top: 20px;
+}
+.block ul.pager li{
+    font-size: 16px;
+    font-family: opensans-semi;
+}
+.item-list-pager .throbber{
+    display: none;
 }
 /*
  * Footer
