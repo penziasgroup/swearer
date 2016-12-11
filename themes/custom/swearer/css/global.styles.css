@@ -1921,6 +1921,12 @@ article.node-story.node-mini-teaser:hover:before{
 .item-list-pager .throbber{
     display: none;
 }
+.view-stories.link-footer .view-footer{
+    font-size: 22px;
+    text-align: right;
+    margin-top: 25px;
+    font-family: opensans-semi;
+}
 /*
  * Footer
  */
